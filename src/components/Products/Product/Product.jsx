@@ -20,7 +20,7 @@ const Product = ({product}) => {
                         { product.price }
                     </Typography>
                 </div>
-                <Typography variant="body" color="textSecondary">
+                <Typography variant="body1" color="textSecondary">
                     { product.description }
                 </Typography>
             </CardContent>
