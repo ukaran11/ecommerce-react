@@ -31,7 +31,7 @@ const App = () => {
         fetchCart();
     }, [])
 
-    console.log("cart",cart);
+    // console.log("cart IN APP",cart);
 
     return (
         <div>
