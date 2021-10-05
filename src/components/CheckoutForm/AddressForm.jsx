@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import FormInput from './CustomTextField';
 
 const AddressForm = () => {
+    const [shippingCountries, setShippingCountries] = useState([]);
     const methods = useForm();
 
     return (
@@ -19,7 +20,7 @@ const AddressForm = () => {
                         <FormInput required name='City' label='City' />
                         <FormInput required name='ZIP' label='ZIP / Postal Code' />
                         
-                        {/* <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={6}>
                             <InputLabel>Shipping Country</InputLabel>
                             <Select value={} fullWidth onChange={}>
                                 <MenuItem key={} value={}>
@@ -42,7 +43,7 @@ const AddressForm = () => {
                                     Select Me
                                 </MenuItem>
                             </Select>
-                        </Grid> */}
+                        </Grid>
 
                     </Grid>
                 </form>
