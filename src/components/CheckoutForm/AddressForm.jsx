@@ -3,8 +3,22 @@ import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@materia
 import { useForm, FormProvider } from 'react-hook-form';
 import FormInput from './CustomTextField';
 
+import {commerce} from '../../lib/commerce';
+
 const AddressForm = () => {
     const [shippingCountries, setShippingCountries] = useState([]);
+    const [shippingCountry, setShippingCountry] = useState('');
+    const [shippingSubdivions, setShippingSubdivions] = useState([]);
+    const [shippingSubdivion, setShippingSubdivion] = useState('');
+    const [shippingOptions, setShippingOptions] = useState([]);
+    const [shippingOption, setShippingOption] = useState('');
+
+    // const fetchShippingCountries = async (checkoutTokenId) => {
+    //     const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+
+    //     setShippingCountries(countries);
+    // }
+
     const methods = useForm();
 
     return (
