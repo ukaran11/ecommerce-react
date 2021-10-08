@@ -1,25 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import FormInput from './CustomTextField';
 
 import {commerce} from '../../lib/commerce';
 
-const AddressForm = () => {
+const AddressForm = ({ checkoutToken }) => {
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState('');
     const [shippingSubdivions, setShippingSubdivions] = useState([]);
     const [shippingSubdivion, setShippingSubdivion] = useState('');
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState('');
+    const methods = useForm();
 
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
+        console.log(countries);
         setShippingCountries(countries);
     }
 
-    const methods = useForm();
+    useEffect(() => {
+        console.log("checkoutToken in addressForm",checkoutToken)
+        fetchShippingCountries(checkoutToken.id)
+    }, [])
 
     return (
         <>
